@@ -1,6 +1,6 @@
 +++
-title = "Overview"
-weight = 1
+title = "igdb"
+weight = 3
 +++
 This is a fork of the original [igbsd-rs](https://github.com/CarlosLanderas/igdb-rs) written
 by Carlos Landeras. I updated it to be compatible with the latest IGDB API.
