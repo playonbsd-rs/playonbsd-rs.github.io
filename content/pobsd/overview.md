@@ -6,7 +6,7 @@ weight = 1
 ## pobsd
 pobsd is a TUI written in Rust designed to browse the [PlayOnBSD database](https://github.com/playonbsd/OpenBSD-Games-Database)
 
-It makes use of both `plege(2)` and `unveil(2)`.
+It makes use of both `pledge(2)` and `unveil(2)`.
 
 ### Installing
 You can install it using `cargo` with `cargo install pobsd`.

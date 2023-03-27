@@ -4,7 +4,7 @@ weight = 1
 +++ 
 
 ## pobsd-db
-This library provides a set of methods to interogate the PlayOnBSD
+This library provides a set of methods to interrogate the PlayOnBSD
 database in a friendly manner, without having to deal with a SQL
 database.
 ### Examples
@@ -42,7 +42,7 @@ let db = GameDataBase::new(games);
      assert_eq!(&game.name, "My Game");
  };
 ```
- Get all games associated to a givent tag.
+ Get all games associated to a given tag.
  ```rust
  extern crate pobsd_db;
  extern crate pobsd_parser;

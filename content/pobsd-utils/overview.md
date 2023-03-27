@@ -6,7 +6,7 @@ weight = 1
 pobsd-utils is a tool written in Rust designed to interact with the PlayOnBSD
 database that can be find [here](https://github.com/playonbsd/OpenBSD-Games-Database)
 
-It makes use of both `plege(2)` and `unveil(2)`.
+It makes use of both `pledge(2)` and `unveil(2)`.
 
 At the moment, it provides two functionalities:
 - checking the database integrity (at the moment, in a minimal way)

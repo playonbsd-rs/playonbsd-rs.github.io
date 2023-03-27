@@ -119,7 +119,7 @@ a parsing error and returning the games it has processed.</p>
 <pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> pobsd_parser;
 </span><span style="color:#b48ead;">use </span><span>pobsd_parser::{Parser, ParserResult, ParsingMode};
 </span><span>
-</span><span style="color:#65737e;">// Create a paser in strict mode
+</span><span style="color:#65737e;">// Create a parser in strict mode
 </span><span style="color:#b48ead;">let</span><span> parser = Parser::new(ParsingMode::Strict);
 </span><span style="color:#65737e;">// Load the database
 </span><span style="color:#b48ead;">let</span><span> parser_result = parser.</span><span style="color:#96b5b4;">load_from_file</span><span>(&quot;</span><span style="color:#a3be8c;">/path/to/games.db</span><span>&quot;)
