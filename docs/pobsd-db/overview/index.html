@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://playonbsd-rs.github.io/main.css">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/128797311">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>  | Overview </title>
+</head>
+<body>
+
+<main>
+    
+    <nav>
+            <a href="https:&#x2F;&#x2F;playonbsd-rs.github.io">
+                        <img src="https://avatars.githubusercontent.com/u/128797311" alt="logo"/>
+                    </a>
+                <a href="javascript:void(0);" onclick="burger()" id="mobile" class="ms-Icon--GlobalNavButton"></a>
+            <div id="trees">
+                <input class="tree-toggle" type="checkbox" id="pobsd-parser"
+                           />
+                    <label class="tree-toggle-label"
+                           for="pobsd-parser">pobsd-parser</label>
+
+                    <ul class="subtree">
+                        <li >
+                                <a href="https://playonbsd-rs.github.io/pobsd-parser/overview/">Overview</a>
+                            </li>
+
+                            </ul>
+                <input class="tree-toggle" type="checkbox" id="pobsd-db"
+                           checked/>
+                    <label class="tree-toggle-label"
+                           for="pobsd-db">pobsd-db</label>
+
+                    <ul class="subtree">
+                        <li class="active">
+                                <a href="https://playonbsd-rs.github.io/pobsd-db/overview/">Overview</a>
+                            </li>
+
+                            
+                                    
+                                    
+                                        </ul>
+                <input class="tree-toggle" type="checkbox" id="pobsd-utils"
+                           />
+                    <label class="tree-toggle-label"
+                           for="pobsd-utils">pobsd-utils</label>
+
+                    <ul class="subtree">
+                        <li >
+                                <a href="https://playonbsd-rs.github.io/pobsd-utils/overview/">Overview</a>
+                            </li>
+
+                            </ul>
+                <input class="tree-toggle" type="checkbox" id="pobsd"
+                           />
+                    <label class="tree-toggle-label"
+                           for="pobsd">pobsd</label>
+
+                    <ul class="subtree">
+                        <li >
+                                <a href="https://playonbsd-rs.github.io/pobsd/overview/">Overview</a>
+                            </li>
+
+                            </ul>
+                <input class="tree-toggle" type="checkbox" id="igdb"
+                           />
+                    <label class="tree-toggle-label"
+                           for="igdb">igdb</label>
+
+                    <ul class="subtree">
+                        <li >
+                                <a href="https://playonbsd-rs.github.io/igdb/overview/">Overview</a>
+                            </li>
+
+                            </ul>
+                </div>
+        </nav>
+    <article>
+
+        <div id="on_right">
+                <span id="search-ico" class="ms-Icon--Search"></span>
+            </div>
+            <div class="search-container">
+                <input id="search" type="search" placeholder="Search as you type...">
+                <div class="search-results">
+                    <div class="search-results__header"></div>
+                    <ul class="search-results__items"></ul>
+                </div>
+            </div>
+        <div id="wrap">
+            
+        <h2 id="pobsd-db">pobsd-db</h2>
+<p>This library provides a set of methods to interogate the PlayOnBSD
+database in a friendly manner, without having to deal with a SQL
+database.</p>
+<h3 id="examples">Examples</h3>
+<p>Create a GameDataBase from the PlayOnBSD database.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> pobsd_db;
+</span><span style="color:#b48ead;">extern crate</span><span> pobsd_parser;
+</span><span style="color:#b48ead;">use </span><span>pobsd_db::GameDataBase;
+</span><span style="color:#b48ead;">use </span><span>pobsd_parser::{Game, Parser, ParserResult, ParsingMode};
+</span><span style="color:#65737e;">// loading the games from the database
+</span><span style="color:#b48ead;">let</span><span> games = </span><span style="color:#b48ead;">match </span><span>Parser::new(ParsingMode::Strict)
+</span><span>      .</span><span style="color:#96b5b4;">load_from_file</span><span>(&quot;</span><span style="color:#a3be8c;">games.db</span><span>&quot;)
+</span><span>      .</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Could not open the file</span><span>&quot;)
+</span><span>  {
+</span><span>      ParserResult::WithoutError(games) =&gt; games,
+</span><span>      ParserResult::WithError(games, _) =&gt; games,
+</span><span>  };
+</span><span>GameDataBase::new(games);
+</span></code></pre>
+<p>Get a game by name.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> pobsd_db;
+</span><span style="color:#b48ead;">extern crate</span><span> pobsd_parser;
+</span><span style="color:#b48ead;">use </span><span>pobsd_db::GameDataBase;
+</span><span style="color:#b48ead;">use </span><span>pobsd_parser::{Game, Parser, ParserResult, ParsingMode};
+</span><span style="color:#b48ead;">let</span><span> games = </span><span style="color:#b48ead;">match </span><span>Parser::new(ParsingMode::Strict)
+</span><span>       .</span><span style="color:#96b5b4;">load_from_file</span><span>(&quot;</span><span style="color:#a3be8c;">games.db</span><span>&quot;)
+</span><span>       .</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Could not open the file</span><span>&quot;)
+</span><span>   {
+</span><span>       ParserResult::WithoutError(games) =&gt; games,
+</span><span>       ParserResult::WithError(games, _) =&gt; games,
+</span><span>   };
+</span><span style="color:#b48ead;">let</span><span> db = GameDataBase::new(games);
+</span><span style="color:#b48ead;">if let </span><span>Some(game) = db.</span><span style="color:#96b5b4;">get_game_by_name</span><span>(&quot;</span><span style="color:#a3be8c;">My Game</span><span>&quot;){
+</span><span>    assert_eq!(&amp;game.name, &quot;</span><span style="color:#a3be8c;">My Game</span><span>&quot;);
+</span><span>};
+</span></code></pre>
+<p>Get all games associated to a givent tag.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span> pobsd_db;
+</span><span style="color:#b48ead;">extern crate</span><span> pobsd_parser;
+</span><span style="color:#b48ead;">use </span><span>pobsd_db::GameDataBase;
+</span><span style="color:#b48ead;">use </span><span>pobsd_parser::{Game, Parser, ParserResult, ParsingMode};
+</span><span style="color:#b48ead;">let</span><span> games = </span><span style="color:#b48ead;">match </span><span>Parser::new(ParsingMode::Strict)
+</span><span>      .</span><span style="color:#96b5b4;">load_from_file</span><span>(&quot;</span><span style="color:#a3be8c;">games.db</span><span>&quot;)
+</span><span>      .</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Could not open the file</span><span>&quot;)
+</span><span>  {
+</span><span>      ParserResult::WithoutError(games) =&gt; games,
+</span><span>      ParserResult::WithError(games, _) =&gt; games,
+</span><span>  };
+</span><span style="color:#b48ead;">let</span><span> db = GameDataBase::new(games);
+</span><span style="color:#b48ead;">let</span><span> game_query = db.</span><span style="color:#96b5b4;">get_game_by_tag</span><span>(&quot;</span><span style="color:#a3be8c;">indie</span><span>&quot;);
+</span><span style="color:#65737e;">// check the first element of the query
+</span><span style="color:#b48ead;">if let </span><span>Some(game) = game_query.</span><span style="color:#96b5b4;">get</span><span>(</span><span style="color:#d08770;">0</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">if let </span><span>Some(tags) = &amp;game.tags {
+</span><span>        assert!(tags.</span><span style="color:#96b5b4;">join</span><span>(&quot; &quot;).</span><span style="color:#96b5b4;">contains</span><span>(&quot;</span><span style="color:#a3be8c;">indie</span><span>&quot;));
+</span><span>    };
+</span><span>};
+</span></code></pre>
+
+    
+        </div>
+
+    </article>
+</main>
+
+
+    <script type="text/javascript" src="https://playonbsd-rs.github.io/elasticlunr.min.js" defer></script>
+    <script type="text/javascript" src="https://playonbsd-rs.github.io/search_index.en.js" defer></script>
+<script type="text/javascript" src="https://playonbsd-rs.github.io/js.js" defer></script>
+
+</body>
+</html>
