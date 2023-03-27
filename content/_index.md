@@ -2,7 +2,6 @@
 title = "index"
 insert_anchor_links = "right"
 +++
-
 ## playonbsd-rs
 
 This a toy project I started to learn a bit of Rust. It aims
