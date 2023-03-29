@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://playonbsd-rs.github.io/main.css">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/128797311">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>  | wcip </title>
+</head>
+<body>
+
+<main>
+    
+    <nav>
+            <a href="https:&#x2F;&#x2F;playonbsd-rs.github.io">
+                        <img src="https://avatars.githubusercontent.com/u/128797311" alt="logo"/>
+                    </a>
+                <a href="javascript:void(0);" onclick="burger()" id="mobile" class="ms-Icon--GlobalNavButton"></a>
+            <div id="trees">
+                <input class="tree-toggle" type="checkbox" id="libraries"
+                           />
+                    <label class="tree-toggle-label"
+                           for="libraries">Libraries</label>
+
+                    <ul class="subtree">
+                        <li >
+                                <a href="https://playonbsd-rs.github.io/libraries/pobsd-parser/">pobsd-parser</a>
+                            </li>
+
+                            <li >
+                                <a href="https://playonbsd-rs.github.io/libraries/pobsd-db/">pobsd-db</a>
+                            </li>
+
+                            <li >
+                                <a href="https://playonbsd-rs.github.io/libraries/igdb/">igdb</a>
+                            </li>
+
+                            </ul>
+                <input class="tree-toggle" type="checkbox" id="binaries"
+                           checked/>
+                    <label class="tree-toggle-label"
+                           for="binaries">Binaries</label>
+
+                    <ul class="subtree">
+                        <li >
+                                <a href="https://playonbsd-rs.github.io/binaries/pobsd-utils/">pobsd-utils</a>
+                            </li>
+
+                            <li >
+                                <a href="https://playonbsd-rs.github.io/binaries/pobsd/">pobsd</a>
+                            </li>
+
+                            <li class="active">
+                                <a href="https://playonbsd-rs.github.io/binaries/wcip/">wcip</a>
+                            </li>
+
+                            
+                                    
+                                    
+                                        </ul>
+                </div>
+        </nav>
+    <article>
+
+        <div id="on_right">
+                <span id="search-ico" class="ms-Icon--Search"></span>
+            </div>
+            <div class="search-container">
+                <input id="search" type="search" placeholder="Search as you type...">
+                <div class="search-results">
+                    <div class="search-results__header"></div>
+                    <ul class="search-results__items"></ul>
+                </div>
+            </div>
+        <div id="wrap">
+            
+        <h2 id="wcip-for-what-can-i-play">wcip (for What Can I Play)</h2>
+<p>wcip is a small utility that compares the <code>steamctl apps list</code> output to the PlayOnBSD
+database, and displays the games you own that can be played on OpenBSD.</p>
+<h3 id="installation">Installation</h3>
+<p>You need to install <code>steamctl</code> (games/steamctl) and openssl (security/openssl/1.1).</p>
+<p>You can install <code>wcip</code> using <code>cargo install wcip</code> with following env variables (to adapt
+according to your openssl version if different from the one indicated above):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>OPENSSL_LIB_DIR=/usr/local/lib/eopenssl11/
+</span><span>OPENSSL_INCLUDE_DIR=/usr/local/include/eopenssl11/ 
+</span></code></pre>
+<p>Then, make sure you have <code>$HOME/.cargo/bin</code> in your <code>$PATH</code></p>
+<h3 id="how-to-use-it">How to use it</h3>
+<p>First, you need to configure <code>steamctl</code>. Once it is done, it is as simple as:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ wcip  
+</span><span>Loading steam data. Please wait.
+</span><span>------------------------------------
+</span><span> Gemini Rue
+</span><span> Hints: None
+</span><span> Install: steamctl depot download -a 80310 -o &lt;PATH&gt;
+</span><span> engine: AGS
+</span><span> runtime: scummvm
+</span><span> url: https://store.steampowered.com/app/80310
+</span><span>------------------------------------
+</span><span> Primordia
+</span><span> Hints: None
+</span><span> Install: steamctl depot download -a 227000 -o &lt;PATH&gt;
+</span><span> engine: AGS
+</span><span> runtime: AGS
+</span><span> url: https://store.steampowered.com/app/227000/Primordia/
+</span><span>------------------------------------
+</span><span> The Blackwell Epiphany
+</span><span> Hints: None
+</span><span> Install: steamctl depot download -a 236930 -o &lt;PATH&gt;
+</span><span> engine: AGS
+</span><span> runtime: AGS
+</span><span> url: https://store.steampowered.com/app/236930
+</span><span>------------------------------------
+</span><span> The Shivah
+</span><span> Hints: None
+</span><span> Install: steamctl depot download -a 252370 -o &lt;PATH&gt;
+</span><span> engine: AGS
+</span><span> runtime: scummvm
+</span><span> url: https://store.steampowered.com/app/252370
+</span><span>------------------------------------
+</span></code></pre>
+<p>The information provided for each game should be enough
+to run it without much trouble.</p>
+
+    
+        </div>
+
+    </article>
+</main>
+
+
+    <script type="text/javascript" src="https://playonbsd-rs.github.io/elasticlunr.min.js" defer></script>
+    <script type="text/javascript" src="https://playonbsd-rs.github.io/search_index.en.js" defer></script>
+<script type="text/javascript" src="https://playonbsd-rs.github.io/js.js" defer></script>
+
+</body>
+</html>

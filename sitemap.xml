@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://playonbsd-rs.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/binaries/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/binaries/pobsd-utils/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/binaries/pobsd/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/binaries/wcip/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/libraries/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/libraries/igdb/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/libraries/pobsd-db/</loc>
+    </url>
+    <url>
+        <loc>https://playonbsd-rs.github.io/libraries/pobsd-parser/</loc>
+    </url>
+</urlset>
