@@ -21,6 +21,9 @@ export the PlayOnBSD database.
 
 * [pobsd](https://crates.io/crates/pobsd): a TUI to browse the PlayOnBSD database.
 
+* [wcip](https://crates.io/crates/wcip): A small utility that list the games you own on Steam and
+can be played on OpenBSD.
+
 * [igdb](https://crates.io/crates/pobsd): a fork of an existing but deprecated library for 
 the API of the [IGDB](https://igdb.com) database. This library is not directly related to
 the other ones, but it provides a way to fetch additional information on games.
