@@ -1,3 +1,8 @@
++++
+title = "wcip"
+weight = 3
++++
+
 ## wcip (for What Can I Play)
 wcip is a small utility that compares the `steamctl apps list` output to the PlayOnBSD
 database, and displays the games you own that can be played on OpenBSD.
