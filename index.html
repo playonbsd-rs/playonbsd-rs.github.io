@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    table.head, table.foot { width: 100%; }
+    td.head-rtitle, td.foot-os { text-align: right; }
+    td.head-vol { text-align: center; }
+    .Nd, .Bf, .Op { display: inline; }
+    .Pa, .Ad { font-style: italic; }
+    .Ms { font-weight: bold; }
+    .Bl-diag > dt { font-weight: bold; }
+    code.Nm, .Fl, .Cm, .Ic, code.In, .Fd, .Fn, .Cd { font-weight: bold;
+      font-family: inherit; }
+  </style>
+  <title>POBSD-BROWSER(1)</title>
+</head>
+<body>
+<div class="head" role="doc-pageheader" aria-label="Manual header
+  line"><span class="head-ltitle">POBSD-BROWSER(1)</span>
+  <span class="head-vol">General Commands Manual</span>
+  <span class="head-rtitle">POBSD-BROWSER(1)</span></div>
+<main class="manual-text">
+<section class="Sh">
+<h2 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h2>
+<p class="Pp"><code class="Nm">pobsd-browser</code> &#x2014;
+    <span class="Nd" role="doc-subtitle">terminal user interface for browsing
+    the PlayOnBSD database</span></p>
+</section>
+<section class="Sh">
+<h2 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h2>
+<table class="Nm">
+  <tr>
+    <td><code class="Nm">pobsd-browser</code></td>
+    <td>[<code class="Fl">-f</code> <var class="Ar">file</var>]
+      [<code class="Fl">-s</code> <var class="Ar">file</var>]
+      [<code class="Fl">-u</code> <var class="Ar">url</var>]
+      [<code class="Fl">-o</code>]</td>
+  </tr>
+</table>
+</section>
+<section class="Sh">
+<h2 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h2>
+<p class="Pp">Provides a terminal user interface for browsing the PlayOnBSD
+    database provided by the playonbsd/OpenBSD-Games-Database GitHub
+  repository.</p>
+<p class="Pp">Its arguments are as follows:</p>
+<dl class="Bl-tag">
+  <dt id="f"><a class="permalink" href="#f"><code class="Fl">-f</code></a>
+    <var class="Ar">file</var></dt>
+  <dd>Load the game database from the provided <var class="Ar">file</var> (see
+      FILES section for more details on the database format). Cannot be used
+      together with <code class="Fl">-o</code> or <code class="Fl">-u</code>
+      argument</dd>
+  <dt id="s"><a class="permalink" href="#s"><code class="Fl">-s</code></a>
+    <var class="Ar">file</var></dt>
+  <dd>Use the Steam ids contained in the provided <var class="Ar">file</var> to
+      identify the games owned by the user (the id list can be obtained using
+      steamctl; see FILES section for more details on the file format)</dd>
+  <dt id="u"><a class="permalink" href="#u"><code class="Fl">-u</code></a>
+    <var class="Ar">url</var></dt>
+  <dd>Load the game database from the provided <var class="Ar">url</var> (see
+      FILES section for more details on the database format). Cannot be used
+      together with <code class="Fl">-f</code> or <code class="Fl">-o</code>
+      argument</dd>
+  <dt id="o"><a class="permalink" href="#o"><code class="Fl">-o</code></a></dt>
+  <dd>Load the game database from the game database provided by the official
+      PlayOnBSD GitHub repository. Cannot be used together with
+      <code class="Fl">-f</code> or <code class="Fl">-u</code> argument</dd>
+</dl>
+<p class="Pp">At least one the the <code class="Fl">-f</code> ,
+    <code class="Fl">-u</code> or <code class="Fl">-o</code> argument must be
+    provided.</p>
+</section>
+<section class="Sh">
+<h2 class="Sh" id="COMMANDS"><a class="permalink" href="#COMMANDS">COMMANDS</a></h2>
+<p class="Pp"><code class="Nm">pobsd-browser</code> is a mode-based interface
+    supporting two modes: a list mode and a search mode. The commands differ
+    according to the mode. In the following descriptions, ^X means
+  control-X.</p>
+<section class="Ss">
+<h3 class="Ss" id="list_mode"><a class="permalink" href="#list_mode">list
+  mode</a></h3>
+<p class="Pp">In this mode, it is possible to navigate in the game list. When a
+    game is selected, the corresponding details are displayed in the right
+    panel.</p>
+<dl class="Bl-tag">
+  <dt id="G"><a class="permalink" href="#G"><b class="Sy">G</b></a></dt>
+  <dd>go to the last game of the list</dd>
+  <dt id="g"><a class="permalink" href="#g"><b class="Sy">g</b></a></dt>
+  <dd>go to the first game of the list</dd>
+  <dt id="j"><a class="permalink" href="#j"><b class="Sy">j</b></a> |
+    <a class="permalink" href="#down"><b class="Sy" id="down">down
+    arrow</b></a></dt>
+  <dd>scroll down in the list</dd>
+  <dt id="k"><a class="permalink" href="#k"><b class="Sy">k</b></a> |
+    <a class="permalink" href="#up"><b class="Sy" id="up">up arrow</b></a></dt>
+  <dd>scroll up in the list</dd>
+  <dt id="o~2"><a class="permalink" href="#o~2"><b class="Sy">o</b></a></dt>
+  <dd>toggle between a first mode where all games are displayed and a second
+      mode where only owned games are displayed (show nothing if no Steam ids
+      are provided)</dd>
+  <dt id="q"><a class="permalink" href="#q"><b class="Sy">q</b></a> |
+    <a class="permalink" href="#_C"><b class="Sy" id="_C">^C</b></a> |
+    <a class="permalink" href="#_c"><b class="Sy" id="_c">^c</b></a></dt>
+  <dd>exit application</dd>
+  <dt id="ESC"><a class="permalink" href="#ESC"><b class="Sy">ESC</b></a></dt>
+  <dd>clear the search</dd>
+  <dt id="TAB"><a class="permalink" href="#TAB"><b class="Sy">TAB</b></a> |
+    <a class="permalink" href="#/"><b class="Sy" id="/">/</b></a></dt>
+  <dd>switch to search mode</dd>
+</dl>
+</section>
+<section class="Ss">
+<h3 class="Ss" id="search_mode"><a class="permalink" href="#search_mode">search
+  mode</a></h3>
+<p class="Pp">In this mode, the list of games is updated according to the
+    search. The search is performed on the name, engine, runtime, tag and genre
+    fields.</p>
+<dl class="Bl-tag">
+  <dt id="TAB~2"><a class="permalink" href="#TAB~2"><b class="Sy">TAB</b></a> |
+    <a class="permalink" href="#ESC~2"><b class="Sy" id="ESC~2">ESC</b></a> |
+    <a class="permalink" href="#RETURN"><b class="Sy" id="RETURN">RETURN</b></a></dt>
+  <dd>exit from search mode back to list mode</dd>
+</dl>
+</section>
+</section>
+<section class="Sh">
+<h2 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h2>
+<p class="Pp"><code class="Nm">pobsd-browser</code> uses a game database and,
+    optionally, a file containing a list of Steam ids.</p>
+<section class="Ss">
+<h3 class="Ss" id="game_database"><a class="permalink" href="#game_database">game
+  database</a></h3>
+<p class="Pp">The format of the game database is described in the official
+    PlayOnBSD GitHub repository. Please refer to it for up-to-date
+  formatting.</p>
+</section>
+<section class="Ss">
+<h3 class="Ss" id="list_of_Steam_ids"><a class="permalink" href="#list_of_Steam_ids">list
+  of Steam ids</a></h3>
+<p class="Pp">The file providing the Steam ids should contain space separated
+    values, and the first column should contain the Steam ids. The correct
+    formatting can be obtain with steamctl and used with
+    <code class="Nm">pobsd-browser</code> using the following command:</p>
+<div class="Bd Pp Bd-indent Li">
+<pre>$ steamctl apps list &gt; steam_ids.txt
+$ pobsd-browser -o -s steam_ids.txt</pre>
+</div>
+</section>
+</section>
+<section class="Sh">
+<h2 class="Sh" id="AUTHORS"><a class="permalink" href="#AUTHORS">AUTHORS</a></h2>
+<p class="Pp"><code class="Nm">pobsd-browser</code> was written by
+    <span class="An">Hukadan</span>,
+    <a class="Mt" href="mailto:me@hukadan.org">me@hukadan.org</a>.</p>
+</section>
+</main>
+<div class="foot" role="doc-pagefooter" aria-label="Manual footer
+  line"><span class="foot-left"></span><span class="foot-date">September 11,
+  2024</span> <span class="foot-os">OpenBSD 7.6</span></div>
+</body>
+</html>
